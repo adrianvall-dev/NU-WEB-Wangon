@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagelaran Wayang Kulit Malam Seni Budaya - Organisasi NU Wangon</title>
+
+    <!-- Google Fonts: EB Garamond, Manrope, Playfair Display, Plus Jakarta Sans, Lora -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS (dipakai halaman Berita, Kegiatan, Admin, dll — JANGAN dihapus) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <!-- Tailwind CSS (dipakai homepage & navbar baru) -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2D4736',
+                            hover: '#23382B',
+                            dark: '#1B2C22',
+                            light: '#4E7A5A',
+                            subtle: '#EDF2EE',
+                        },
+                        nu: {
+                            DEFAULT: '#2D4736',
+                            deep: '#23382B',
+                            dark: '#1B2C22',
+                            soft: '#4E7A5A',
+                            subtle: '#EDF2EE',
+                        },
+                        ivory: {
+                            DEFAULT: '#f9f8f4',
+                            dark: '#f3f2ec',
+                            border: '#E7E8E1',
+                        },
+                        charcoal: {
+                            DEFAULT: '#191E1A',
+                            muted: '#636B65',
+                            light: '#8C948E',
+                        },
+                        gold: {
+                            DEFAULT: '#C5A059',
+                            dark: '#A6823B',
+                            light: '#F8F4EB',
+                        },
+                        sand: {
+                            bg: '#f9f8f4',
+                            warm: '#f3f2ec',
+                            muted: '#E7E8E1',
+                        },
+                        ink: {
+                            DEFAULT: '#191E1A',
+                            muted: '#636B65',
+                            light: '#8C948E',
+                        },
+                        surface: '#fcfcfb',
+                        'surface-tint': '#f3f2ec',
+                        'border-editorial': '#E7E8E1',
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', '"Manrope"', 'system-ui', 'sans-serif'],
+                        serif: ['"Playfair Display"', '"EB Garamond"', 'Georgia', 'serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 12px 36px -8px rgba(45, 71, 54, 0.08)',
+                        'float': '0 20px 48px -12px rgba(45, 71, 54, 0.14)',
+                        'pill': '0 4px 16px -2px rgba(45, 71, 54, 0.12)',
+                        'card': '0 1px 3px rgba(25, 30, 26, 0.04), 0 4px 12px rgba(25, 30, 26, 0.03)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Alpine.js (dipakai navbar & modal di homepage) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Motion (Framer Motion official engine for DOM/vanilla) -->
+    <script src="https://cdn.jsdelivr.net/npm/motion@11.11.17/dist/motion.js"></script>
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://cdn.jsdelivr.net/gh/darkroomengineering/lenis@1.1.13/dist/lenis.min.js"></script>
+
+    <style>
+        :root {
+            --nu-primary: #2D4736;
+            --nu-primary-hover: #23382B;
+            --nu-primary-dark: #1B2C22;
+            --nu-primary-darker: #132219;
+            --nu-primary-light: #EDF2EE;
+            --nu-primary-subtle: #F3F3ED;
+            --nu-accent-gold: #C5A059;
+            --nu-accent-gold-subtle: rgba(197, 160, 89, 0.12);
+            --nu-border: #E7E8E1;
+            --nu-border-subtle: rgba(45, 71, 54, 0.12);
+            --nu-text-main: #191E1A;
+            --nu-text-muted: #636B65;
+            --nu-bg-body: #f9f8f4;
+            --nu-bg-card: #fcfcfb;
+
+            --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+
+            --nu-radius: 1rem;
+            --nu-radius-sm: 0.625rem;
+            --nu-radius-lg: 1.5rem;
+            --nu-radius-pill: 50rem;
+
+            --nu-shadow-2xs: 0 1px 2px rgba(25, 30, 26, 0.04);
+            --nu-shadow-sm: 0 1px 3px rgba(25, 30, 26, 0.04), 0 1px 2px rgba(25, 30, 26, 0.02);
+            --nu-shadow: 0 6px 20px -6px rgba(45, 71, 54, 0.08), 0 2px 6px rgba(25, 30, 26, 0.04);
+            --nu-shadow-lg: 0 16px 36px -10px rgba(45, 71, 54, 0.12), 0 6px 14px -4px rgba(25, 30, 26, 0.05);
+            --nu-shadow-hover: 0 12px 28px -8px rgba(45, 71, 54, 0.12), 0 4px 10px rgba(25, 30, 26, 0.04);
+        }
+
+        .glass-nav {
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            background-color: rgba(251, 251, 249, 0.95);
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--nu-bg-body);
+            color: var(--nu-text-main);
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.6;
+        }
+
+        [x-cloak] { display: none !important; }
+
+        :root {
+            --nav-height: 64px;
+        }
+
+        main.main-content {
+            flex: 1 0 auto;
+            padding-top: 0;
+        }
+
+        .serif-title {
+            font-family: 'EB Garamond', Georgia, serif;
+            letter-spacing: -0.015em;
+        }
+        .hairline-b {
+            border-bottom: 1px solid rgba(20, 30, 23, 0.08);
+        }
+        .hairline-t {
+            border-top: 1px solid rgba(20, 30, 23, 0.08);
+        }
+        .hairline-white-b {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .hairline-white-t {
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .reveal-item {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-item.is-revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .font-display,
+        .display-heading,
+        .hero-title,
+        .section-title {
+            font-family: var(--font-display);
+            letter-spacing: -0.015em;
+        }
+        .font-est-serif {
+            font-family: 'Playfair Display', serif !important;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--nu-text-main);
+            font-weight: 700;
+        }
+
+        .nu-pattern-subtle {
+            background-color: #ffffff;
+            background-image: radial-gradient(rgba(0, 133, 66, 0.08) 1.2px, transparent 1.2px);
+            background-size: 24px 24px;
+        }
+        .nu-pattern-dark {
+            background-color: #0b3b20;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .text-success-nu, .text-nu-primary { color: var(--nu-primary) !important; }
+        .bg-success-nu, .bg-nu-primary { background-color: var(--nu-primary) !important; color: #ffffff !important; }
+        .bg-nu-subtle { background-color: var(--nu-primary-subtle) !important; }
+
+        .btn-nu-primary {
+            background-color: var(--nu-primary);
+            border: 1.5px solid var(--nu-primary);
+            color: #ffffff !important;
+            font-weight: 600;
+            border-radius: var(--nu-radius-pill);
+            padding: 0.65rem 1.4rem;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 12px rgba(0, 133, 66, 0.2);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            line-height: 1.25;
+            white-space: nowrap;
+        }
+        .btn-nu-primary:hover {
+            background-color: var(--nu-primary-hover);
+            border-color: var(--nu-primary-hover);
+            color: #ffffff !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 133, 66, 0.28);
+        }
+        .btn-nu-primary:active {
+            transform: translateY(0) scale(0.98);
+            box-shadow: 0 2px 6px rgba(0, 133, 66, 0.2);
+        }
+
+        .btn-nu-outline {
+            background-color: #ffffff;
+            border: 1.5px solid #cbd5e1;
+            color: #334155 !important;
+            font-weight: 600;
+            border-radius: var(--nu-radius-pill);
+            padding: 0.65rem 1.4rem;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            line-height: 1.25;
+            white-space: nowrap;
+        }
+        .btn-nu-outline:hover {
+            background-color: #f8fafc;
+            border-color: var(--nu-primary);
+            color: var(--nu-primary) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(15, 23, 42, 0.05);
+        }
+        .btn-nu-outline:active { transform: translateY(0) scale(0.98); }
+
+        .card-nu {
+            background: var(--nu-bg-card);
+            border: 1px solid var(--nu-border);
+            border-radius: var(--nu-radius);
+            box-shadow: var(--nu-shadow-sm);
+            transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hover-lift {
+            transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--nu-shadow-hover) !important;
+            border-color: rgba(0, 133, 66, 0.2) !important;
+        }
+
+        .hover-zoom-container { overflow: hidden; }
+        .hover-zoom-container img { transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        .hover-zoom-container:hover img { transform: scale(1.04); }
+
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-on-scroll.is-revealed { opacity: 1; transform: translateY(0); }
+
+        .reveal-fade { opacity: 0; transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-fade.is-revealed { opacity: 1; }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.96);
+            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-scale.is-revealed { opacity: 1; transform: scale(1); }
+
+        .delay-100 { transition-delay: 100ms; }
+        .delay-150 { transition-delay: 150ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-250 { transition-delay: 250ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
+        .delay-500 { transition-delay: 500ms; }
+        .delay-600 { transition-delay: 600ms; }
+
+        .stagger-children > * {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .stagger-children.is-revealed > *:nth-child(1) { transition-delay: 60ms; }
+        .stagger-children.is-revealed > *:nth-child(2) { transition-delay: 120ms; }
+        .stagger-children.is-revealed > *:nth-child(3) { transition-delay: 180ms; }
+        .stagger-children.is-revealed > *:nth-child(4) { transition-delay: 240ms; }
+        .stagger-children.is-revealed > *:nth-child(5) { transition-delay: 300ms; }
+        .stagger-children.is-revealed > *:nth-child(6) { transition-delay: 360ms; }
+        .stagger-children.is-revealed > *:nth-child(7) { transition-delay: 420ms; }
+        .stagger-children.is-revealed > *:nth-child(8) { transition-delay: 480ms; }
+        .stagger-children.is-revealed > *:nth-child(9) { transition-delay: 540ms; }
+        .stagger-children.is-revealed > * { opacity: 1; transform: translateY(0); }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-left.is-revealed { opacity: 1; transform: translateX(0); }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-right.is-revealed { opacity: 1; transform: translateX(0); }
+
+        .page-hero-section {
+            background: linear-gradient(135deg, var(--nu-primary-darker) 0%, var(--nu-primary) 60%, #00a854 100%);
+            padding: 3rem 0 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+        }
+        .page-hero-title {
+            font-family: var(--font-display);
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+        .page-hero-subtitle { color: rgba(255, 255, 255, 0.8); max-width: 540px; }
+
+        .nu-section-divider {
+            width: 48px;
+            height: 4px;
+            background: var(--nu-primary);
+            border-radius: 2px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .form-nu-card {
+            background: var(--nu-bg-card);
+            border: 1px solid var(--nu-border);
+            border-radius: var(--nu-radius-lg);
+            box-shadow: var(--nu-shadow);
+            padding: 2rem;
+        }
+        @media (min-width: 768px) { .form-nu-card { padding: 2.5rem; } }
+
+        .form-section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--nu-border);
+        }
+        .form-section-number {
+            width: 28px;
+            height: 28px;
+            background-color: var(--nu-primary);
+            color: #ffffff;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.78rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .form-section-title { font-weight: 700; color: var(--nu-text-main); font-size: 1rem; margin-bottom: 0; }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--nu-primary);
+            box-shadow: 0 0 0 0.2rem rgba(0, 133, 66, 0.12);
+        }
+        .form-control, .form-select {
+            border-radius: 0.625rem;
+            border-color: #e2e8f0;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+        }
+        .form-label { font-weight: 600; color: var(--nu-text-main); font-size: 0.875rem; margin-bottom: 0.35rem; }
+        .form-text { font-size: 0.75rem; color: var(--nu-text-muted); margin-top: 0.3rem; }
+
+        .stat-card-premium {
+            background: var(--nu-bg-card);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            border-radius: var(--nu-radius);
+            padding: 1.15rem;
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .stat-card-premium:hover { transform: translateY(-3px); box-shadow: var(--nu-shadow); }
+
+        .page-hero-description { color: rgba(255, 255, 255, 0.75); font-size: 0.95rem; line-height: 1.6; }
+
+        .link-underline-effect { position: relative; text-decoration: none; }
+        .link-underline-effect::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--nu-primary);
+            border-radius: 1px;
+            transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .link-underline-effect:hover::after { width: 100%; }
+
+        .card-image-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.55));
+            padding: 3rem 1.25rem 1rem;
+            pointer-events: none;
+        }
+
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .reveal-on-scroll, .reveal-fade, .reveal-scale, .reveal-left, .reveal-right, .stagger-children > *, .reveal-item {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+            .stagger-children > * { transition-delay: 0ms !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FLOATING EDITORIAL NAVBAR (INSPIRED BY REFERENCE DIRECTION) -->
+<header x-data="{ mobileMenuOpen: false, userDropdownOpen: false }"
+        class="sticky top-0 z-50 w-full pt-3 sm:pt-4 pb-1 transition-all duration-300 pointer-events-none">
+    
+    <div class="max-w-[1240px] mx-auto px-4 sm:px-6 pointer-events-auto">
+        <!-- Floating Surface: White, Rounded 16px, Subtle Border & Soft Shadow -->
+        <div class="bg-white/95 backdrop-blur-md rounded-[16px] border border-[#E7E8E1]/90 shadow-[0_4px_20px_-4px_rgba(25,30,26,0.06)] min-h-[68px] px-4 sm:px-6 py-2.5 flex items-center justify-between transition-all duration-300">
+            
+            <!-- 1. LEFT: LOGO + ORGANIZATION NAME -->
+            <a href="http://localhost:8000" class="flex items-center gap-3 group text-decoration-none shrink-0">
+                <div class="w-9 h-9 sm:w-10 sm:h-10 shrink-0 flex items-center justify-center">
+                    <img src="http://localhost:8000/images/landing/logo-nu.png" 
+                         alt="Logo MWC NU Wangon" 
+                         class="w-full h-full object-contain filter group-hover:scale-105 transition-transform duration-200">
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-[14px] sm:text-[15px] text-[#191E1A] tracking-normal group-hover:text-[#2D4736] transition-colors leading-tight">
+                        Organisasi NU Wangon
+                    </span>
+                    <span class="text-[9.5px] font-medium uppercase tracking-wider text-[#636B65] leading-none mt-0.5">
+                        Majelis Wakil Cabang
+                    </span>
+                </div>
+            </a>
+
+            <!-- 2. CENTER: NAV LINKS (EDITORIAL CLEAN & COMPACT) -->
+            <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-[13px] font-medium text-[#191E1A]">
+                <a href="http://localhost:8000#beranda" 
+                   class="transition-colors duration-200 hover:text-[#2D4736] ">
+                    Beranda
+                </a>
+                <a href="http://localhost:8000#tentang" 
+                   class="transition-colors duration-200 hover:text-[#2D4736]">
+                    Tentang
+                </a>
+                <a href="http://localhost:8000/kegiatan" 
+                   class="transition-colors duration-200 hover:text-[#2D4736] ">
+                    Agenda
+                </a>
+                <a href="http://localhost:8000/berita" 
+                   class="transition-colors duration-200 hover:text-[#2D4736] ">
+                    Berita
+                </a>
+                <a href="http://localhost:8000/galeri" 
+                   class="transition-colors duration-200 hover:text-[#2D4736] ">
+                    Galeri
+                </a>
+                <a href="http://localhost:8000#kemandirian" 
+                   class="transition-colors duration-200 hover:text-[#2D4736]">
+                    Kemandirian
+                </a>
+            </nav>
+
+            <!-- 3. RIGHT: CTA & PROFILE / MENU CONTROLS -->
+            <div class="flex items-center gap-2.5 sm:gap-3">
+                <!-- CTA Button: Daftar Anggota -->
+                <a href="http://localhost:8000/anggota/daftar" 
+                   class="inline-flex items-center justify-center px-4 sm:px-5 h-10 rounded-full bg-[#2D4736] hover:bg-[#23382B] text-white text-xs sm:text-[13px] font-semibold tracking-normal transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-2xs text-decoration-none shrink-0">
+                    <span>Daftar Anggota</span>
+                </a>
+
+                <!-- User Profile / Menu Dropdown Control -->
+                <div class="relative" @click.outside="userDropdownOpen = false">
+                                            <button type="button" 
+                                @click="userDropdownOpen = !userDropdownOpen"
+                                class="w-10 h-10 rounded-full bg-[#fcfcfb] border border-[#E7E8E1] hover:border-[#2D4736] text-[#191E1A] hover:text-[#2D4736] flex items-center justify-center transition-all duration-200 shadow-2xs cursor-pointer"
+                                title="Menu Akun"
+                                aria-label="Menu Akun">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                            </svg>
+                        </button>
+
+                        <!-- Guest Dropdown Menu -->
+                        <div x-show="userDropdownOpen" 
+                             x-cloak
+                             x-transition:enter="transition ease-out duration-150"
+                             x-transition:enter-start="opacity-0 scale-95 -translate-y-1"
+                             x-transition:enter-end="opacity-100 scale-100 translate-y-0"
+                             x-transition:leave="transition ease-in duration-100"
+                             x-transition:leave-start="opacity-100 scale-100 translate-y-0"
+                             x-transition:leave-end="opacity-0 scale-95 -translate-y-1"
+                             class="absolute right-0 mt-2 w-48 bg-white rounded-2xl border border-[#E7E8E1] shadow-xl py-2 z-50">
+                            <a href="http://localhost:8000/login" 
+                               class="flex items-center gap-2.5 px-4 py-2.5 text-xs font-semibold text-[#191E1A] hover:bg-[#f9f8f4] hover:text-[#2D4736] transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                                </svg>
+                                <span>Masuk Akun</span>
+                            </a>
+                            <a href="http://localhost:8000/anggota/cek-status" 
+                               class="flex items-center gap-2.5 px-4 py-2.5 text-xs text-[#636B65] hover:bg-[#f9f8f4] hover:text-[#191E1A] transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                                </svg>
+                                <span>Cek Status KARTANU</span>
+                            </a>
+                        </div>
+                                    </div>
+
+                <!-- Mobile Hamburger Toggle Button -->
+                <button type="button" 
+                        @click="mobileMenuOpen = !mobileMenuOpen"
+                        class="lg:hidden w-10 h-10 rounded-full bg-[#fcfcfb] border border-[#E7E8E1] hover:border-[#2D4736] text-[#191E1A] flex items-center justify-center transition-colors cursor-pointer"
+                        aria-label="Toggle Menu Navigasi">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        <path x-show="mobileMenuOpen" x-cloak stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- 4. MOBILE FLOATING DRAWER (BELONGS VISUALLY TO THE NAVBAR) -->
+        <div x-show="mobileMenuOpen" 
+             x-cloak
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-2 scale-[0.98]"
+             x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+             x-transition:leave="transition ease-in duration-150"
+             x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+             x-transition:leave-end="opacity-0 -translate-y-2 scale-[0.98]"
+             class="lg:hidden mt-2 bg-white/98 backdrop-blur-md rounded-[16px] border border-[#E7E8E1] shadow-lg p-4 space-y-1.5">
+            
+            <a href="http://localhost:8000#beranda" 
+               @click="mobileMenuOpen = false"
+               class="block px-3.5 py-2.5 rounded-xl text-xs font-medium text-[#191E1A] hover:bg-[#f9f8f4] hover:text-[#2D4736] transition-colors">
+                Beranda
+            </a>
+            <a href="http://localhost:8000#tentang" 
+               @click="mobileMenuOpen = false"
+               class="block px-3.5 py-2.5 rounded-xl text-xs font-medium text-[#191E1A] hover:bg-[#f9f8f4] hover:text-[#2D4736] transition-colors">
+                Tentang
+            </a>
+            <a href="http://localhost:8000/kegiatan" 
+               @click="mobileMenuOpen = false"
+               class="block px-3.5 py-2.5 rounded-xl text-xs font-medium text-[#191E1A] hover:bg-[#f9f8f4] hover:text-[#2D4736] transition-colors">
+                Agenda Kegiatan
+            </a>
+            <a href="http://localhost:8000/berita" 
+               @click="mobileMenuOpen = false"
+               class="block px-3.5 py-2.5 rounded-xl text-xs font-medium text-[#191E1A] hover:bg-[#f9f8f4] hover:text-[#2D4736] transition-colors">
+                Warta &amp; Berita
+            </a>
+            <a href="http://localhost:8000/galeri" 
+               @click="mobileMenuOpen = false"
+               class="block px-3.5 py-2.5 rounded-xl text-xs font-medium text-[#191E1A] hover:bg-[#f9f8f4] hover:text-[#2D4736] transition-colors">
+                Galeri Dokumentasi
+            </a>
+            <a href="http://localhost:8000#kemandirian" 
+               @click="mobileMenuOpen = false"
+               class="block px-3.5 py-2.5 rounded-xl text-xs font-medium text-[#191E1A] hover:bg-[#f9f8f4] hover:text-[#2D4736] transition-colors">
+                Kemandirian Ummat
+            </a>
+            
+            <div class="pt-3 border-t border-[#E7E8E1] flex flex-col gap-2">
+                <a href="http://localhost:8000/anggota/daftar" 
+                   class="w-full text-center py-2.5 rounded-full bg-[#2D4736] text-white text-xs font-semibold">
+                    Daftar Anggota (KARTANU)
+                </a>
+                                    <a href="http://localhost:8000/login" 
+                       class="w-full text-center py-2 rounded-full border border-[#E7E8E1] bg-white text-xs font-medium text-[#191E1A]">
+                        Masuk Akun
+                    </a>
+                            </div>
+        </div>
+    </div>
+</header>
+    <main class="main-content">
+    
+<!-- GOOGLE FONTS & TAILWIND -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Leaflet CSS for Interactive Public Map -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    nu: {
+                        bg: '#F5F4EE',
+                        card: '#ECEAE2',
+                        text: '#2B2E2A',
+                        muted: '#787B75',
+                        border: '#DDD9CF',
+                        pill: '#E2DEC1',
+                        accent: '#4C5340'
+                    }
+                },
+                fontFamily: {
+                    serif: ['"Playfair Display"', 'serif'],
+                    sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                }
+            }
+        }
+    }
+</script>
+
+<div class="bg-[#F5F4EE] text-[#2B2E2A] font-sans min-h-screen py-10 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto space-y-12">
+
+        <!-- ================= TOP HEADER (CENTERED) ================= -->
+        <header class="text-center max-w-3xl mx-auto space-y-4">
+            <div class="flex items-center justify-center gap-2 flex-wrap">
+                <!-- CATEGORY BADGE -->
+                <span class="inline-block bg-[#E5E2D0] text-[#55594D] text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full border border-[#DDD9CF]">
+                    umum
+                </span>
+
+                <!-- EVENT STATUS BADGE -->
+                
+                <span id="status-badge">
+                                            <span class="inline-block bg-[#4C5340] text-white text-[10px] font-bold uppercase tracking-[0.15em] px-3 py-1 rounded-full">
+                            Mendatang
+                        </span>
+                                    </span>
+            </div>
+
+            <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#2B2E2A] leading-[1.25]">
+                Pagelaran Wayang Kulit Malam Seni Budaya
+            </h1>
+
+            <div class="text-xs text-[#787B75] flex items-center justify-center gap-2 font-medium">
+                <span>Tuesday, 29 September 2026</span>
+                <span>•</span>
+                <span>Organisasi NU Wangon</span>
+            </div>
+        </header>
+
+
+        <!-- ================= HERO IMAGE WITH CAPTION ================= -->
+                    <figure class="space-y-0 overflow-hidden rounded-2xl shadow-sm">
+                <div class="relative group overflow-hidden bg-[#ECEAE2]">
+                    <img src="http://localhost:8000/storage/kegiatan/YBDoE6WE9kpzJ0MBbm71VDo7OWbv0PbmQgJq9MJ6.jpg" class="w-full h-auto max-h-[520px] object-cover" alt="Pagelaran Wayang Kulit Malam Seni Budaya">
+                    <div class="absolute inset-0 bg-black/10"></div>
+                </div>
+                <figcaption class="bg-[#2B2E2A]/90 backdrop-blur-sm text-white/80 text-[11px] py-2.5 px-4 flex justify-between items-center">
+                    <span class="truncate">Dokumentasi Pagelaran Wayang Kulit Malam Seni Budaya</span>
+                    <span class="text-white/50 text-[10px] shrink-0 ml-2">Foto: Dok. Media MWC NU Wangon</span>
+                </figcaption>
+            </figure>
+        
+
+        <!-- ================= MAIN CONTENT GRID ================= -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+            
+            <!-- LEFT: ARTICLE & EVENT DETAILS -->
+            <main class="lg:col-span-8 space-y-6 text-[#333732] leading-relaxed text-sm sm:text-base font-normal">
+                
+                <!-- COUNTDOWN TIMER (IF UPCOMING / ONGOING) -->
+                                    <div class="bg-[#2B2E2A] text-white rounded-2xl p-6 text-center space-y-3 shadow-sm" id="countdown-card">
+                        <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60 block" id="countdown-label">
+                            <i class="bi bi-hourglass-split me-1"></i> Hitung Mundur Acara
+                        </span>
+                        
+                        <div id="countdown-content" class="pt-1">
+                            <div class="flex justify-center items-center gap-4 text-white">
+                                <div class="text-center min-w-[50px]">
+                                    <span id="days" class="font-serif text-3xl font-bold block leading-none">00</span>
+                                    <span class="text-[9px] uppercase tracking-wider text-white/50">Hari</span>
+                                </div>
+                                <span class="text-xl opacity-40 font-serif">:</span>
+                                <div class="text-center min-w-[50px]">
+                                    <span id="hours" class="font-serif text-3xl font-bold block leading-none">00</span>
+                                    <span class="text-[9px] uppercase tracking-wider text-white/50">Jam</span>
+                                </div>
+                                <span class="text-xl opacity-40 font-serif">:</span>
+                                <div class="text-center min-w-[50px]">
+                                    <span id="minutes" class="font-serif text-3xl font-bold block leading-none">00</span>
+                                    <span class="text-[9px] uppercase tracking-wider text-white/50">Menit</span>
+                                </div>
+                                <span class="text-xl opacity-40 font-serif">:</span>
+                                <div class="text-center min-w-[50px]">
+                                    <span id="seconds" class="font-serif text-3xl font-bold block leading-none">00</span>
+                                    <span class="text-[9px] uppercase tracking-wider text-white/50">Detik</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                <!-- DESCRIPTION BODY -->
+                <div class="article-body space-y-5">
+                    Pagelaran Wayang Kulit Malam Seni Budaya merupakan pertunjukan seni tradisional yang memadukan unsur tata rupa, musik gamelan, dan sastra pewayangan semalam suntuk untuk menyajikan tontonan hiburan yang edukatif bagi seluruh lapisan masyarakat tanpa dipungut biaya. Kegiatan ini diselenggarakan sebagai upaya nyata dalam melestarikan warisan budaya luhur bangsa sekaligus menjadi media penyampaian pesan moral dan budi pekerti kepada generasi muda. Selain berfungsi sebagai sarana hiburan yang bermutu, acara ini juga menjadi wadah silaturahmi untuk mempererat persatuan dan gotong royong antarwarga, serta diharapkan mampu menggerakkan ekonomi lokal dengan membuka peluang usaha bagi para pelaku UMKM di sekitar lokasi pementasan.
+                </div>
+
+                <!-- ================= LOKASI KEGIATAN & PETA INTERAKTIF ================= -->
+                <section class="mt-8 pt-6 border-t border-[#DDD9CF] space-y-4" id="lokasi-kegiatan">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#787B75] block">
+                                Peta &amp; Titik Lokasi
+                            </span>
+                            <h3 class="font-serif text-2xl font-bold text-[#2B2E2A] mt-0.5">
+                                Lokasi Kegiatan
+                            </h3>
+                        </div>
+                                                    <div>
+                                <a href="https://www.google.com/maps/dir/?api=1&amp;destination=-7.3558669,109.0591968" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer"
+                                   class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#2D4736] hover:bg-[#23382B] text-white text-xs font-semibold uppercase tracking-wider transition-all duration-300 shadow-xs hover:shadow hover:-translate-y-0.5 text-decoration-none">
+                                    <i class="bi bi-compass"></i>
+                                    <span>Navigasi ke Lokasi</span>
+                                    <i class="bi bi-box-arrow-up-right text-[10px] opacity-75"></i>
+                                </a>
+                            </div>
+                                            </div>
+
+                                            <!-- Interactive Leaflet Map Container -->
+                        <div class="rounded-2xl overflow-hidden border border-[#DDD9CF] shadow-xs relative bg-[#ECEAE2]" style="height: 380px;">
+                            <div id="publicKegiatanMap" style="height: 100%; width: 100%;"></div>
+                        </div>
+
+                        <!-- Location Detail & Action Card -->
+                        <div class="p-4 sm:p-5 rounded-2xl bg-[#ECEAE2] border border-[#DDD9CF] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <div class="flex items-start gap-3 min-w-0">
+                                <div class="w-10 h-10 rounded-xl bg-[#2D4736] text-white flex items-center justify-center shrink-0 shadow-xs">
+                                    <i class="bi bi-geo-alt-fill text-lg"></i>
+                                </div>
+                                <div class="min-w-0">
+                                    <span class="text-[11px] uppercase tracking-wider font-bold text-[#787B75] block">Alamat Pelaksanaan</span>
+                                    <p class="text-sm sm:text-base font-semibold text-[#2B2E2A] mb-0 leading-snug break-words">
+                                        Karangkemiri, Banyumas
+                                    </p>
+                                    <span class="text-[11px] text-[#787B75] block mt-1 font-mono">
+                                        Koordinat: -7.355867, 109.059197
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="shrink-0">
+                                <a href="https://www.google.com/maps/dir/?api=1&amp;destination=-7.3558669,109.0591968" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer"
+                                   class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#2D4736] hover:bg-[#23382B] text-white text-xs font-semibold uppercase tracking-wider transition-all duration-300 shadow-xs hover:shadow text-decoration-none">
+                                    <i class="bi bi-geo-alt"></i>
+                                    <span>Buka di Google Maps</span>
+                                </a>
+                            </div>
+                        </div>
+                                    </section>
+            </main>
+
+
+            <!-- RIGHT: SIDEBAR WIDGETS -->
+            <aside class="lg:col-span-4 space-y-6">
+                
+                <!-- WIDGET 1: INFORMASI KEGIATAN -->
+                <div class="bg-[#ECEAE2] border border-[#DDD9CF] rounded-2xl p-6 space-y-4">
+                    <h4 class="text-[11px] font-bold uppercase tracking-[0.15em] text-[#787B75] border-b border-[#DDD9CF] pb-2">
+                        Informasi Acara
+                    </h4>
+
+                    <div class="space-y-3.5 text-xs">
+                        <div>
+                            <span class="text-[#787B75] block text-[10px]">Hari & Tanggal</span>
+                            <span class="font-semibold text-[#2B2E2A] mt-0.5 block">
+                                Tuesday, 29 September 2026
+                            </span>
+                        </div>
+
+                        <div>
+                            <span class="text-[#787B75] block text-[10px]">Waktu Pelaksanaan</span>
+                            <span class="font-semibold text-[#2B2E2A] mt-0.5 block">
+                                21:00
+                                                                    - 01:05
+                                                                WIB
+                            </span>
+                        </div>
+
+                        <div>
+                            <span class="text-[#787B75] block text-[10px]">Lokasi Acara</span>
+                            <span class="font-semibold text-[#2B2E2A] mt-0.5 block">
+                                Karangkemiri, Banyumas
+                            </span>
+                                                            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=-7.3558669,109.0591968" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer"
+                                   class="inline-flex items-center gap-1 text-[11px] font-semibold text-[#2D4736] hover:underline mt-1">
+                                    <i class="bi bi-compass"></i>
+                                    <span>Petunjuk Arah Maps →</span>
+                                </a>
+                                                    </div>
+
+                        <div>
+                            <span class="text-[#787B75] block text-[10px]">Penyelenggara</span>
+                            <span class="font-semibold text-[#2B2E2A] flex items-center gap-1 mt-0.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#4C5340]"></span> Organisasi NU Wangon
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- WIDGET 2: BAGIKAN AGENDA -->
+                <div class="bg-[#ECEAE2] border border-[#DDD9CF] rounded-2xl p-6 space-y-4">
+                    <div>
+                        <h4 class="text-[11px] font-bold uppercase tracking-[0.15em] text-[#787B75]">
+                            Bagikan Agenda
+                        </h4>
+                        <p class="text-[10px] text-[#787B75] mt-0.5">
+                            Syiarkan informasi agenda dan kegiatan ini ke warga Nahdliyyin.
+                        </p>
+                    </div>
+
+                    <div class="space-y-2 pt-1">
+                        <!-- WhatsApp -->
+                        <a href="https://api.whatsapp.com/send?text=Hadirilah+Kegiatan%3A+Pagelaran+Wayang+Kulit+Malam+Seni+Budaya+-+http%3A%2F%2Flocalhost%3A8000" 
+                           target="_blank" rel="noopener noreferrer"
+                           class="w-full bg-white hover:bg-[#F5F4EE] border border-[#DDD9CF] text-[#2B2E2A] py-2 px-4 rounded-full text-xs font-medium flex items-center justify-center gap-2 transition-all shadow-xs">
+                            <i class="bi bi-whatsapp text-emerald-600"></i>
+                            <span>WhatsApp</span>
+                        </a>
+
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A8000" 
+                           target="_blank" rel="noopener noreferrer"
+                           class="w-full bg-white hover:bg-[#F5F4EE] border border-[#DDD9CF] text-[#2B2E2A] py-2 px-4 rounded-full text-xs font-medium flex items-center justify-center gap-2 transition-all shadow-xs">
+                            <i class="bi bi-facebook text-blue-600"></i>
+                            <span>Facebook</span>
+                        </a>
+
+                        <!-- Salin Link -->
+                        <button onclick="copyLinkOnly()" id="copyEventBtn"
+                                class="w-full bg-white hover:bg-[#F5F4EE] border border-[#DDD9CF] text-[#2B2E2A] py-2 px-4 rounded-full text-xs font-medium flex items-center justify-center gap-2 transition-all shadow-xs">
+                            <i class="bi bi-link-45deg text-lg"></i>
+                            <span id="copyBtnText">Salin Link</span>
+                        </button>
+                    </div>
+                </div>
+
+
+                <!-- WIDGET 3: KOMITMEN WARTA DIGITAL -->
+                <div class="bg-[#E5E2D0]/60 border border-[#DDD9CF] rounded-2xl p-5 text-center">
+                    <h5 class="text-[11px] font-bold text-[#2B2E2A] mb-1">Komitmen Kegiatan Digital</h5>
+                    <p class="text-[10px] text-[#787B75] leading-relaxed">
+                        Seluruh jadwal dan informasi agenda resmi diterbitkan oleh Tim Media & Dakwah Majelis Wakil Cabang Nahdlatul Ulama Wangon.
+                    </p>
+                </div>
+
+            </aside>
+
+        </div>
+
+
+        <!-- ================= SECTION AGENDA LAINNYA ================= -->
+        <hr class="border-[#DDD9CF] my-10">
+
+        <section class="space-y-6">
+            <div>
+                <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#787B75]">Arsip & Agenda</span>
+                <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-[#2B2E2A] mt-0.5">Agenda Lainnya</h3>
+                <p class="text-xs text-[#787B75]">Baca kegiatan dan agenda terbaru lainnya dari Organisasi NU Wangon.</p>
+            </div>
+
+            
+                            <p class="text-xs text-[#787B75] italic">Belum ada agenda kegiatan lainnya.</p>
+                    </section>
+
+
+        <!-- ================= FOOTER BACK NAVIGATION ================= -->
+        <footer class="pt-8 border-t border-[#DDD9CF] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#787B75]">
+            <a href="http://localhost:8000/kegiatan" class="inline-flex items-center gap-2 font-semibold text-[#2B2E2A] hover:text-[#4C5340] transition-colors">
+                <i class="bi bi-arrow-left"></i>
+                <span>Kembali ke Kegiatan</span>
+            </a>
+            <span class="text-[10px]">Agenda MWC NU Wangon — Tampilan Resmi</span>
+        </footer>
+
+    </div>
+</div>
+
+<!-- STYLES UNTUK DROP CAP & TYPOGRAPHY -->
+<style>
+    /* Drop Cap Huruf Pertama */
+    .article-body > p:first-of-type::first-letter {
+        font-family: 'Playfair Display', serif;
+        float: left;
+        font-size: 3.5rem;
+        line-height: 0.8;
+        padding-top: 4px;
+        padding-right: 10px;
+        padding-bottom: 2px;
+        font-weight: 700;
+        color: #4C5340;
+    }
+
+    .article-body h2, .article-body h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #2B2E2A;
+        margin-top: 1.75rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .article-body blockquote {
+        border-left: 2px solid #4C5340;
+        padding-left: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        font-style: italic;
+        color: #55594D;
+    }
+</style>
+
+<script>
+    function copyLinkOnly() {
+        navigator.clipboard.writeText('http://localhost:8000').then(() => {
+            const btnText = document.getElementById('copyBtnText');
+            if (btnText) {
+                btnText.textContent = 'Tautan Disalin!';
+                setTimeout(() => {
+                    btnText.textContent = 'Salin Link';
+                }, 2000);
+            }
+        });
+    }
+
+        (function () {
+        const startDate = new Date("2026-09-29T21:00:00+07:00").getTime();
+        const endDate = new Date("2026-09-29T01:05:00+07:00").getTime();
+
+        const label = document.getElementById("countdown-label");
+        const content = document.getElementById("countdown-content");
+        const badge = document.getElementById("status-badge");
+        const card = document.getElementById("countdown-card");
+
+        function pad(num) {
+            return num < 10 ? '0' + num : num;
+        }
+
+        function renderOngoing() {
+            if (label) label.innerHTML = '<i class="bi bi-broadcast me-1"></i> Status Acara:';
+            if (content) content.innerHTML = '<h5 class="font-serif text-lg font-bold text-white">Acara Sedang Berlangsung</h5>';
+            if (badge) badge.innerHTML = '<span class="inline-block bg-red-800 text-white text-[10px] font-bold uppercase tracking-[0.15em] px-3 py-1 rounded-full animate-pulse">Sedang Berlangsung</span>';
+        }
+
+        function renderFinished() {
+            if (content) content.innerHTML = '<h5 class="font-serif text-lg font-bold text-white">Acara Telah Selesai</h5>';
+            if (badge) badge.innerHTML = '<span class="inline-block bg-[#DDD9CF] text-[#787B75] text-[10px] font-bold uppercase tracking-[0.15em] px-3 py-1 rounded-full">Selesai</span>';
+            if (card) {
+                setTimeout(() => { 
+                    card.style.opacity = '0'; 
+                    card.style.transition = 'all 0.4s ease';
+                    setTimeout(() => card.style.display = 'none', 400); 
+                }, 3000);
+            }
+        }
+
+        const timer = setInterval(function () {
+            const now = new Date().getTime();
+
+            if (now >= endDate) {
+                clearInterval(timer);
+                renderFinished();
+                return;
+            }
+
+            if (now >= startDate) {
+                renderOngoing();
+                return;
+            }
+
+            const difference = startDate - now;
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            const daysEl = document.getElementById("days");
+            const hoursEl = document.getElementById("hours");
+            const minEl = document.getElementById("minutes");
+            const secEl = document.getElementById("seconds");
+
+            if (daysEl && hoursEl && minEl && secEl) {
+                daysEl.textContent = pad(days);
+                hoursEl.textContent = pad(hours);
+                minEl.textContent = pad(minutes);
+                secEl.textContent = pad(seconds);
+            }
+        }, 1000);
+    })();
+    </script>
+
+<!-- Leaflet JS for Public Interactive Map -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const lat = -7.3558669;
+    const lng = 109.0591968;
+    const title = &quot;Pagelaran Wayang Kulit Malam Seni Budaya&quot;;
+    const address = &quot;Karangkemiri, Banyumas&quot;;
+
+    const mapContainer = document.getElementById('publicKegiatanMap');
+    if (mapContainer && lat && lng && window.L) {
+        const map = L.map('publicKegiatanMap', {
+            scrollWheelZoom: false
+        }).setView([lat, lng], 16);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        const marker = L.marker([lat, lng]).addTo(map);
+        marker.bindPopup(`
+            <div style="font-family:'Plus Jakarta Sans',sans-serif;max-width:240px;padding:2px;">
+                <strong style="color:#2D4736;font-size:13px;display:block;margin-bottom:4px;">${title}</strong>
+                <p style="font-size:11px;color:#555;margin:0 0 6px 0;line-height:1.4;">${address}</p>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}" target="_blank" rel="noopener noreferrer" style="display:inline-block;font-size:11px;font-weight:bold;color:#2D4736;text-decoration:none;">
+                    Buka Rute Google Maps →
+                </a>
+            </div>
+        `).openPopup();
+
+        setTimeout(() => map.invalidateSize(), 300);
+    }
+});
+</script>
+
+</main>
+
+    <!-- EDITORIAL LIGHT FOOTER (MATCHING REFERENCE SCREENSHOT) -->
+<footer class="bg-[#fcfcfb] text-[#191E1A] pt-16 pb-12 border-t border-[#E7E8E1] mt-auto relative z-20" id="kontak">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- 4-Column Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#E7E8E1]">
+            
+            <!-- Col 1: Institutional Identity & Social Media (5 Cols) -->
+            <div class="lg:col-span-4 space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-white p-1 rounded-xl flex items-center justify-center shrink-0 border border-[#E7E8E1] shadow-2xs">
+                        <img alt="Logo Resmi MWC NU Wangon" 
+                             class="w-full h-full object-contain" 
+                             src="http://localhost:8000/images/landing/logo-nu.png">
+                    </div>
+                    <div>
+                        <span class="font-bold text-sm tracking-tight text-[#191E1A] block">ORGANISASI NU WANGON</span>
+                        <span class="text-[10px] uppercase tracking-[0.14em] text-[#636B65] font-semibold block">Majelis Wakil Cabang</span>
+                    </div>
+                </div>
+
+                <p class="text-xs text-[#636B65] leading-relaxed max-w-sm">
+                    Wadah resmi pembinaan, syiar dakwah Ahlussunnah wal Jama'ah an-Nahdliyyah, dan khidmah kemaslahatan masyarakat se-Kecamatan Wangon, Kabupaten Banyumas, Jawa Tengah.
+                </p>
+
+                <!-- Social Icons -->
+                <div class="flex items-center gap-2 pt-2">
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" 
+                       class="w-8 h-8 rounded-full bg-white border border-[#E7E8E1] hover:border-[#2D4736] hover:bg-[#2D4736] hover:text-white text-[#191E1A] flex items-center justify-center text-xs transition-all shadow-2xs" 
+                       title="Instagram NU Wangon">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" 
+                       class="w-8 h-8 rounded-full bg-white border border-[#E7E8E1] hover:border-[#2D4736] hover:bg-[#2D4736] hover:text-white text-[#191E1A] flex items-center justify-center text-xs transition-all shadow-2xs" 
+                       title="YouTube NU Wangon">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+                    <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" 
+                       class="w-8 h-8 rounded-full bg-white border border-[#E7E8E1] hover:border-[#2D4736] hover:bg-[#2D4736] hover:text-white text-[#191E1A] flex items-center justify-center text-xs transition-all shadow-2xs" 
+                       title="WhatsApp Sekretariat">
+                        <i class="bi bi-whatsapp"></i>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" 
+                       class="w-8 h-8 rounded-full bg-white border border-[#E7E8E1] hover:border-[#2D4736] hover:bg-[#2D4736] hover:text-white text-[#191E1A] flex items-center justify-center text-xs transition-all shadow-2xs" 
+                       title="Facebook NU Wangon">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                </div>
+
+                <div class="text-[11px] text-[#636B65] pt-1">
+                    SK Kemenkumham: <span class="font-mono text-[#191E1A]">AHU-119.AH.01.08.Tahun 2013</span>
+                </div>
+            </div>
+
+            <!-- Col 2: Badan Otonom (2.5 Cols) -->
+            <div class="lg:col-span-2 space-y-3">
+                <h4 class="text-xs font-bold uppercase tracking-[0.14em] text-[#191E1A]">Badan Otonom</h4>
+                <ul class="space-y-2 text-xs text-[#636B65]">
+                    <li><a class="hover:text-[#2D4736] transition-colors" href="http://localhost:8000/anggota?organisasi=ansor">GP Ansor Wangon</a></li>
+                    <li><a class="hover:text-[#2D4736] transition-colors" href="http://localhost:8000/anggota?organisasi=banser">Banser Satkoryon</a></li>
+                    <li><a class="hover:text-[#2D4736] transition-colors" href="http://localhost:8000/anggota?organisasi=muslimat">Muslimat NU Wangon</a></li>
+                    <li><a class="hover:text-[#2D4736] transition-colors" href="http://localhost:8000/anggota?organisasi=fatayat">Fatayat NU Wangon</a></li>
+                    <li><a class="hover:text-[#2D4736] transition-colors" href="http://localhost:8000/anggota">IPNU &amp; IPPNU</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Lembaga Otonom (2.5 Cols) -->
+            <div class="lg:col-span-3 space-y-3">
+                <h4 class="text-xs font-bold uppercase tracking-[0.14em] text-[#191E1A]">Lembaga Otonom</h4>
+                <ul class="space-y-2 text-xs text-[#636B65]">
+                    <li><a class="hover:text-[#2D4736] transition-colors" href="http://localhost:8000#nilai">LAZISNU Wangon (ZISWAF)</a></li>
+                    <li><a class="hover:text-[#2D4736] transition-colors" href="http://localhost:8000#kemandirian">LP Ma'arif NU Wangon</a></li>
+                    <li><a class="hover:text-[#2D4736] transition-colors" href="http://localhost:8000#kemandirian">LKNU (Kesehatan Warga)</a></li>
+                    <li><a class="hover:text-[#2D4736] transition-colors" href="http://localhost:8000#kemandirian">LPBI NU (Bencana &amp; Iklim)</a></li>
+                    <li><a class="hover:text-[#2D4736] transition-colors" href="http://localhost:8000#kemandirian">LWP NU (Wakaf &amp; Pertanahan)</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Sekretariat & Layanan (3 Cols) -->
+            <div class="lg:col-span-3 space-y-3">
+                <h4 class="text-xs font-bold uppercase tracking-[0.14em] text-[#191E1A]">Sekretariat</h4>
+                <address class="not-italic text-xs text-[#636B65] space-y-2">
+                    <p class="leading-relaxed text-[#191E1A]">
+                        <strong class="block font-semibold">Gedung MWC NU Wangon</strong>
+                        Jl. Raya Barat Wangon, Kec. Wangon, Kab. Banyumas, Jawa Tengah 53176
+                    </p>
+                    <p><span class="font-medium text-[#191E1A]">WhatsApp:</span> +62 812-3456-7890</p>
+                    <p><span class="font-medium text-[#191E1A]">Email:</span> sekretariat@nuwangon.or.id</p>
+                    <p class="text-[11px] text-[#636B65]">Jam Layanan: Senin – Ahad (08.00 – 16.00 WIB)</p>
+                </address>
+
+                <div class="pt-2">
+                    <button type="button" 
+                            class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-[#E7E8E1] hover:border-[#2D4736] text-[11px] font-semibold text-[#191E1A] rounded-full transition-colors cursor-pointer shadow-2xs" 
+                            onclick="copySiteLink()">
+                        <svg class="w-3.5 h-3.5 text-[#2D4736]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" />
+                        </svg>
+                        <span id="copy-btn-text">Salin Tautan Web</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sub-footer Bar -->
+        <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#636B65] gap-4">
+            <p>© 2026 Majelis Wakil Cabang NU Wangon. Seluruh hak cipta dilindungi.</p>
+            <div class="flex items-center gap-4 text-[11px]">
+                <a href="#tentang" class="hover:text-[#2D4736] transition-colors">Pedoman Jam'iyyah</a>
+                <span>•</span>
+                <a href="#kontak" class="hover:text-[#2D4736] transition-colors">Kebijakan Privasi</a>
+                <span>•</span>
+                <span class="font-serif italic text-[#191E1A]">“Merawat Tradisi, Meneguhkan Aswaja”</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Toast notification for copy action -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 bg-[#191E1A] text-white border border-[#2D4736] px-4 py-3 rounded-xl shadow-2xl text-xs flex items-center gap-3 pointer-events-none" id="copy-toast">
+    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+    <span id="toast-message">Tautan portal berhasil disalin ke papan klip.</span>
+</div>
+
+<script>
+    function copySiteLink() {
+        const url = window.location.href;
+        const toast = document.getElementById('copy-toast');
+        const copyBtnText = document.getElementById('copy-btn-text');
+
+        function triggerToast() {
+            if (copyBtnText) copyBtnText.textContent = 'Tersalin!';
+            if (toast) {
+                toast.classList.remove('translate-y-24', 'opacity-0');
+                toast.classList.add('translate-y-0', 'opacity-100');
+
+                setTimeout(() => {
+                    toast.classList.add('translate-y-24', 'opacity-0');
+                    toast.classList.remove('translate-y-0', 'opacity-100');
+                    if (copyBtnText) copyBtnText.textContent = 'Salin Tautan Web';
+                }, 3000);
+            }
+        }
+
+        function manualCopy(text) {
+            const input = document.createElement('input');
+            input.value = text;
+            document.body.appendChild(input);
+            input.select();
+            try {
+                document.execCommand('copy');
+                triggerToast();
+            } catch (e) {
+                prompt('Salin tautan resmi ini:', text);
+            }
+            document.body.removeChild(input);
+        }
+
+        if (navigator.share) {
+            navigator.share({
+                title: document.title,
+                url: url
+            }).catch(() => {});
+        } else if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(url).then(triggerToast).catch(() => manualCopy(url));
+        } else {
+            manualCopy(url);
+        }
+    }
+</script>
+    <!-- Bootstrap JS (dipakai halaman lain — JANGAN dihapus) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            // 0. LENIS SMOOTH SCROLL ENGINE (Singleton guarded)
+            if (typeof Lenis !== 'undefined' && !prefersReducedMotion) {
+                if (!window.lenisInstance) {
+                    window.lenisInstance = new Lenis({
+                        duration: 1.15,
+                        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                        smoothWheel: true,
+                    });
+                    function raf(time) {
+                        if (window.lenisInstance) {
+                            window.lenisInstance.raf(time);
+                            requestAnimationFrame(raf);
+                        }
+                    }
+                    requestAnimationFrame(raf);
+                }
+            }
+
+            // 3. Scroll Reveal Observer
+            if ('IntersectionObserver' in window) {
+                const revealElements = document.querySelectorAll('.reveal-on-scroll, .reveal-fade, .reveal-scale, .reveal-left, .reveal-right, .stagger-children, .reveal-item');
+                const revealObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-revealed');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+                revealElements.forEach(el => revealObserver.observe(el));
+            } else {
+                document.querySelectorAll('.reveal-on-scroll, .reveal-fade, .reveal-scale, .reveal-left, .reveal-right, .stagger-children, .reveal-item')
+                    .forEach(el => el.classList.add('is-revealed'));
+            }
+
+            // 4. Animated Counter untuk elemen [data-counter]
+            const counterElements = document.querySelectorAll('[data-counter]');
+            if (counterElements.length > 0 && 'IntersectionObserver' in window) {
+                const counterObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const el = entry.target;
+                            const targetVal = parseInt(el.getAttribute('data-counter'), 10);
+                            const suffix = el.getAttribute('data-suffix') || '';
+                            const duration = 1400;
+                            const startTime = performance.now();
+
+                            const updateCounter = (currentTime) => {
+                                const elapsed = currentTime - startTime;
+                                const progress = Math.min(elapsed / duration, 1);
+                                const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+                                const currentVal = Math.floor(easeProgress * targetVal);
+                                el.textContent = currentVal.toLocaleString('id-ID') + suffix;
+
+                                if (progress < 1) {
+                                    requestAnimationFrame(updateCounter);
+                                } else {
+                                    el.textContent = targetVal.toLocaleString('id-ID') + suffix;
+                                }
+                            };
+                            requestAnimationFrame(updateCounter);
+                            observer.unobserve(el);
+                        }
+                    });
+                }, { threshold: 0.3 });
+
+                counterElements.forEach(el => counterObserver.observe(el));
+            }
+
+            // 5. Smooth Scroll untuk anchor link dalam halaman
+            document.addEventListener('click', (event) => {
+                const anchor = event.target.closest('a[href^="#"]');
+                if (!anchor) return;
+
+                const hash = anchor.getAttribute('href');
+                if (!hash || hash === '#') return;
+
+                const target = document.getElementById(hash.slice(1));
+                if (!target) return;
+
+                event.preventDefault();
+
+                const navbar = document.getElementById('navbarMain');
+                const collapse = navbar && window.bootstrap && bootstrap.Collapse.getInstance(navbar);
+                if (collapse) collapse.hide();
+
+                target.scrollIntoView({
+                    behavior: prefersReducedMotion ? 'auto' : 'smooth',
+                    block: 'start',
+                });
+
+                history.replaceState(null, '', hash);
+            });
+        });
+    </script>
+</body>
+</html>
